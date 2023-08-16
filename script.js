@@ -1,61 +1,89 @@
 let h2 = document.querySelector("h2");
 
-const row1 = document.querySelector("#row1");
-const row2 = document.querySelector("#row2");
-const row3 = document.querySelector("#row3");
+const boxes = document.querySelectorAll(".boxes");
 
-const box = document.querySelectorAll(".box");
+const topLeftValue = document.querySelector("#top-left").innerHTML;
+const topMiddleValue = document.querySelector("#top-middle").innerHTML;
+const topRightValue = document.querySelector("#top-right").innerHTML;
+const middleLeftValue = document.querySelector("#middle-left").innerHTML;
+const centerValue = document.querySelector("#center").innerHTML;
+const middleRightValue = document.querySelector("#middle-right").innerHTML;
+const bottomLeftValue = document.querySelector("#bottom-left").innerHTML;
+const bottomMiddleValue = document.querySelector("#bottom-middle").innerHTML;
+const bottomRightValue = document.querySelector("#bottom-right").innerHTML;
 
-let playerXscore = document.querySelector("#playerX-score");
-let tieCounter = document.querySelector("#tie-counter");
-let playerOscore = document.querySelector("#playerO-score");
+let player1Score = document.querySelector("#player1-score").innerHTML;
+let tieCounter = document.querySelector("#tie-counter").innerHTML;
+let player2Score = document.querySelector("#player2-score").innerHTML;
 
 const button = document.querySelector("button");
 
-const topLeft = document.querySelector("#top-left");
-const topMiddle = document.querySelector("#top-middle");
-const topRight = document.querySelector("#top-right");
-const middleLeft = document.querySelector("#middle-left");
-const centerBox = document.querySelector("#center");
-const middleRight = document.querySelector("#middle-right");
-const bottomLeft = document.querySelector("#bottom-left");
-const bottomMiddle = document.querySelector("#bottom-middle");
-const bottomRight = document.querySelector("#bottom-right");
-
-
-function displayh2() {
-    if (playerXscore > playerOscore) {
-        h2.innerHTML = "Player 1 wins!";
-    } else if (playerOscore > playerXscore) {
-        h2.innerHTML = "Player 2 wins!";
-    } else {
-        h2.innerHTML = "It's a tie! Play again!";
-    }
-}
 
 let currentPlayer = "Player 1";
 
-function playGame() {
-    
+function switchPlayers() {
+    boxes.forEach(box => {
+        if (box.innerHTML === "" && currentPlayer === "Player 1") {
+            box.innerHTML = currentPlayer;
+            currentPlayer = "Player 2";
+        } else if (box.innerHTML === "" && currentPlayer === "Player 2") {
+            box.innerHTML = currentPlayer;
+            currentPlayer = "Player 1";
+        }
+    })
+}
 
-    /* topLeft || topMiddle || topRight || middleLeft | centerBox || middleRight || bottomLeft || bottomMiddle || bottomRight */
 
-    if (box.innerHTML === "" && currentPlayer === "Player 1") {
-        box.innerHTML = currentPlayer;
-        currentPlayer = "Player 2";
-    } else (box.innerHTML === "" && currentPlayer === "Player 2") {
-        box.innerHTML = currentPlayer;
-        currentPlayer = "Player 1";
+function displayPlayerChoice(box) {
+    if (currentPlayer === "Player 1") {
+        box.innerHTML = "X";
+        
+        if ((topLeftValue === "X" && topMiddleValue === "X" && topRightValue === "X") || (middleLeftValue === "X" && centerValue === "X" && middleRightValue === "X") || (bottomLeftValue === "X" && bottomMiddleValue === "X" && bottomRightValue === "X") || (topLeftValue === "X" && centerValue === "X" && bottomRightValue === "X") || (topRightValue === "X" && centerValue === "X" && bottomLeftValue === "X")) {
+            h2.innerHTML = "Player 1 wins!";
+
+        } else if ((topLeftValue === "O" && topMiddleValue === "X" && topRightValue === "O") || (middleLeftValue === "O" && centerValue === "O" && middleRightValue === "O") || (bottomLeftValue === "O" && bottomMiddleValue === "O" && bottomRightValue === "O") || (topLeftValue === "O" && centerValue === "O" && bottomRightValue === "X") || (topRightValue === "O" && centerValue === "O" && bottomLeftValue === "O")) {
+            h2.innerHTML = "Player 2 wins!"
+
+        } else {
+            h2.innerHTML = "It's a tie!";
+        }
+
+    } else {
+        box.innerHTML = "O";
     }
+}
 
+
+function updateScores() {
+    if (h2.innerHTML === "Player 1 wins!") {
+        player1Score = parseInt(player1Score.innerHTML) + 1;
+    } else if (h2.innerHTML === "Player 2 wins!") {
+        player2Score = parseInt(player2Score.innerHTML) + 1;
+    } else if (h2.innerHTML === "It's a tie!") {
+        tieCounter = parseInt(tieCounter.innerHTML) + 1;
+    }
+}
+
+
+function updateCurrentPlayerDisplay() {
+    
+}
+
+function playGame() {
+    boxes.forEach(box => {
+        box.addEventListener("click", () => {
+            if (box.innerHTML === "") {
+                displayPlayerChoice(box);
+                switchPlayers();
+                updateScores();
+                updateCurrentPlayerDisplay();
+            }
+        })
+    })
 }
 
 
 function playAgain(event) {
     event.preventDefault();
     playGame();
-}
-
-
-
-
+} "
