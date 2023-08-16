@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <title>Tic Tac Toe</title>
 </head>
@@ -16,46 +17,70 @@
         <h2></h2>   
     </div>
 
-    <div id="board">
-        <div class="row1">
-            <div class="box" id="top-left"></div>
-            <div class="box" id="top-middle"></div>
-            <div class="box" id="top-right"></div>
+    <div class="container" id="split">
+        <div class="row">
+            <div class="col-lg-6">
+
+                <div class="container" id="board">
+                    <div class="row" id="row1">
+                        <div class="col-lg-4 box" id="top-left"></div>
+                        <div class="col-lg-4 box" id="top-middle"></div>
+                        <div class="col-lg-4 box" id="top-right"></div>
+                    </div>
+
+                    <div class="row" id="row2">
+                        <div class="col-lg-4 box" id="middle-left"></div>
+                        <div class="col-lg-4 box" id="center"></div>
+                        <div class="col-lg-4 box" id="middle-right"></div>
+                    </div>
+
+                    <div class="row" id="row3">
+                        <div class="col-lg-4 box" id="bottom-left"></div>
+                        <div class="col-lg-4 box" id="bottom-middle"></div>
+                        <div class="col-lg-4 box" id="bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="container" id="scores">
+                    <div class="row">
+
+                        <div class="col-lg-4 playerX">
+                            <h3>Player 1</h3>
+                            <div id="playerX-score"></div>
+                        </div>
+
+                        <div class="col-lg-4 tie">
+                            <h3>Tie</h3>
+                            <div id="tie-counter"></div>
+                        </div>
+
+                        <div class="col-lg-4 playerO">
+                            <h3>Player 2</h3>
+                            <div id="playerO-score"></div>
+                        </div>
+
+                        </div>
+                    </div>
+                
+                    <div class="row" id="button-row">
+                        <div class="col">
+                            <button>Play Again</button>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
         </div>
 
-        <div class="row2">
-            <div class="box" id="middle-left"></div>
-            <div class="box" id="center"></div>
-            <div class="box" id="middle-right"></div>
-        </div>
-
-        <div class="row3">
-            <div class="box" id="bottom-left"></div>
-            <div class="box" id="bottom-middle"></div>
-            <div class="box" id="bottom-right"></div>
-        </div>
     </div>
-
-    <div class="container">
-        <div class="scores">
-            <h3>Player X</h3>
-            <div id="playerX-score"></div>
-        </div>
-
-        <div class="scores">
-            <h3>Tie</h3>
-            <div id="tie-counter"></div>
-        </div>
-
-        <div class="scores">
-            <h3>Player O</h3>
-            <div id="playerO-score"></div>
-        </div>
-    </div>
-
-    <button>Play Again</button>
 
 
     <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

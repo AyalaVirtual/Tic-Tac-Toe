@@ -1,8 +1,8 @@
 let h2 = document.querySelector("h2");
 
-const row1 = document.querySelector(".row1");
-const row2 = document.querySelector(".row2");
-const row3 = document.querySelector(".row3");
+const row1 = document.querySelector("#row1");
+const row2 = document.querySelector("#row2");
+const row3 = document.querySelector("#row3");
 
 const box = document.querySelectorAll(".box");
 
@@ -51,7 +51,7 @@ function playGame() {
 }
 
 
-function playAgain(evemt) {
+function playAgain(event) {
     event.preventDefault();
     playGame();
 }
