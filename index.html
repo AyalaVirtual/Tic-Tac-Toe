@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    
+    <div>
+       <h1>Let's Play Tic Tac Toe!</h1> 
+    </div>
+
+    <div>
+        <h2></h2>   
+    </div>
+
+    <div id="board">
+        <div class="row1">
+            <div class="box" id="top-left"></div>
+            <div class="box" id="top-middle"></div>
+            <div class="box" id="top-right"></div>
+        </div>
+
+        <div class="row2">
+            <div class="box" id="middle-left"></div>
+            <div class="box" id="center"></div>
+            <div class="box" id="middle-right"></div>
+        </div>
+
+        <div class="row3">
+            <div class="box" id="bottom-left"></div>
+            <div class="box" id="bottom-middle"></div>
+            <div class="box" id="bottom-right"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="scores">
+            <h3>Player X</h3>
+            <div id="playerX-score"></div>
+        </div>
+
+        <div class="scores">
+            <h3>Tie</h3>
+            <div id="tie-counter"></div>
+        </div>
+
+        <div class="scores">
+            <h3>Player O</h3>
+            <div id="playerO-score"></div>
+        </div>
+    </div>
+
+    <button>Play Again</button>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
