@@ -9,11 +9,6 @@ let button = document.querySelector("button");
 let currentPlayer = "Player 1";
 
 
-function disableClicks() {
-    boxes.forEach(box => removeEventListener("click", playGame));
-}
-
-
 function updateScore() {
     let player1 = parseInt(player1Score.innerText);
     let player2 = parseInt(player2Score.innerText);
@@ -22,18 +17,25 @@ function updateScore() {
     if (currentPlayer === "Player 1") {
         player1 += 1;
         player1Score.innerText = player1;
-        disableClicks();
 
     } else if (currentPlayer === "Player 2") {
         player2 += 1;
         player2Score.innerText = player2;
-        disableClicks();
 
     } else {
         ties += 1;
         tieCounter.innerText = ties;
-        disableClicks();
     } 
+}
+
+
+function disableClicks() {
+    if (h2.innerHTML === "Player 1 wins!" || h2.innerHTML === "Player 2 wins!" || h2.innerHTML === "It's a tie!") {
+        boxes.forEach(box => box.removeEventListener("click", playGame));
+
+        console.log("WTF");
+        return;
+    }
 }
 
 
@@ -56,13 +58,18 @@ function playGame(event) {
     if (clickedBox.innerHTML === "") {
         if (currentPlayer === "Player 1") {
             clickedBox.innerHTML = "X";
+            
+            // console.log(topLeft.innerText);
 
             // Check win conditions for Player 1
             if ((topLeft.innerText === "X" && topMiddle.innerText === "X" && topRight.innerText === "X") || (middleLeft.innerText === "X" && center.innerText === "X" && middleRight.innerText === "X") || (bottomLeft.innerText === "X" && bottomMiddle.innerText === "X" && bottomRight.innerText === "X") || (topLeft.innerText === "X" && center.innerText === "X" && bottomRight.innerText === "X") || (topRight.innerText === "X" && center.innerText === "X" && bottomLeft.innerText === "X") || (topLeft.innerText === "X" && middleLeft.innerText === "X" && bottomLeft.innerText === "X") || (topMiddle.innerText === "X" && center.innerText === "X" && bottomMiddle.innerText === "X") || (topRight.innerText === "X" && middleRight.innerText === "X" && bottomRight.innerText === "X")) {
 
                 h2.innerHTML = "Player 1 wins!";
+                // player1Score += 1;
                 
                 updateScore();
+                
+                disableClicks();
 
             } else {
                 currentPlayer = "Player 2";
@@ -76,7 +83,9 @@ function playGame(event) {
             if ((topLeft.innerText === "O" && topMiddle.innerText === "O" && topRight.innerText === "O") || (middleLeft.innerText === "O" && center.innerText === "O" && middleRight.innerText === "O") || (bottomLeft.innerText === "O" && bottomMiddle.innerText === "O" && bottomRight.innerText === "O") || (topLeft.innerText === "O" && center.innerText === "O" && bottomRight.innerText === "O") || (topRight.innerText === "O" && center.innerText === "O" && bottomLeft.innerText === "O") || (topLeft.innerText === "O" && middleLeft.innerText === "O" && bottomLeft.innerText === "O") || (topMiddle.innerText === "O" && center.innerText === "O" && bottomMiddle.innerText === "O") || (topRight.innerText === "O" && middleRight.innerText === "O" && bottomRight.innerText === "O")) {
                 
                 h2.innerHTML = "Player 2 wins!";
+                // player2Score += 1;
                 updateScore();
+                disableClicks();
             
             } else {
                 currentPlayer = "Player 1";
@@ -84,7 +93,9 @@ function playGame(event) {
             }
         } else {
             h2.innerHTML = "It's a tie!";
-            tieCounter += 1;
+            
+            updateScore();
+            disableClicks();
         }
     }
 }
