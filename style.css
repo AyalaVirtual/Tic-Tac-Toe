@@ -8,11 +8,14 @@ h1, h2 {
     text-align: center;
 }
 
+#split {
+    display: grid;
+}
+
 #board {
     display: grid;
     gap: 16px; 
     border:10px solid pink;
-    justify-content: center;
     background-color: aqua;
     padding: 20px;
     margin: 0 auto;
@@ -58,21 +61,22 @@ h1, h2 {
 }
 
 .boxes {
-    font-size: 80px;
+    font-size: 100px;
     text-align: center;
-    align-items: center;
 }
 
 #scores {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
-    margin-left: 100px
+    margin-top: 100px;
+    margin-left: 150px
 }
 
 #button-row {
     text-align: center;
+    margin-top: 100px;
     margin-bottom: 20px;
+    margin-left: 100px
 }
 
 button {
