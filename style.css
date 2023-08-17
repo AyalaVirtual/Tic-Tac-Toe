@@ -10,7 +10,6 @@ h1, h2 {
 
 #board {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 16px; 
     border:10px solid pink;
     justify-content: center;
@@ -21,18 +20,54 @@ h1, h2 {
     margin-top: 20px;
     margin-bottom: 20px;
     grid-gap: 16px;
-
 }
 
 .row {
-    height: 400px;
+    height: 120px;
+    justify-content: space-between;
+}
+
+#row1 {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#row2 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#row3 {
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.column1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.column2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.column3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.boxes {
+    font-size: 80px;
+    text-align: center;
+    align-items: center;
 }
 
 #scores {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-    margin-left: 100px;
+    margin-left: 100px
 }
 
 #button-row {
