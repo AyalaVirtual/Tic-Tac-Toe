@@ -29,32 +29,25 @@ function playGame(event) {
             clickedBox.innerHTML = "X";
             
             // Check win conditions for Player 1
-            if (
-                (topLeftValue === "X" && topMiddleValue === "X" && topRightValue === "X") ||
-                (middleLeftValue === "X" && centerValue === "X" && middleRightValue === "X") ||
-                (bottomLeftValue === "X" && bottomMiddleValue === "X" && bottomRightValue === "X") ||
-                (topLeftValue === "X" && centerValue === "X" && bottomRightValue === "X") ||
-                (topRightValue === "X" && centerValue === "X" && bottomLeftValue === "X")
-            ) {
+            if ((topLeftValue === "X" && topMiddleValue === "X" && topRightValue === "X") || (middleLeftValue === "X" && centerValue === "X" && middleRightValue === "X") || (bottomLeftValue === "X" && bottomMiddleValue === "X" && bottomRightValue === "X") || (topLeftValue === "X" && centerValue === "X" && bottomRightValue === "X") || (topRightValue === "X" && centerValue === "X" && bottomLeftValue === "X")) {
+
                 h2.innerHTML = "Player 1 wins!";
                 player1Score += 1;
+
             } else {
                 currentPlayer = "Player 2";
                 h2.innerHTML = "Player 2's turn!";
             }
+            
         } else if (currentPlayer === "Player 2") {
             clickedBox.innerHTML = "O";
 
             // Check win conditions for Player 2
-            if (
-                (topLeftValue === "O" && topMiddleValue === "O" && topRightValue === "O") ||
-                (middleLeftValue === "O" && centerValue === "O" && middleRightValue === "O") ||
-                (bottomLeftValue === "O" && bottomMiddleValue === "O" && bottomRightValue === "O") ||
-                (topLeftValue === "O" && centerValue === "O" && bottomRightValue === "O") ||
-                (topRightValue === "O" && centerValue === "O" && bottomLeftValue === "O")
-            ) {
+            if ((topLeftValue === "O" && topMiddleValue === "O" && topRightValue === "O") || (middleLeftValue === "O" && centerValue === "O" && middleRightValue === "O") || (bottomLeftValue === "O" && bottomMiddleValue === "O" && bottomRightValue === "O") || (topLeftValue === "O" && centerValue === "O" && bottomRightValue === "O") || (topRightValue === "O" && centerValue === "O" && bottomLeftValue === "O")) {
+                
                 h2.innerHTML = "Player 2 wins!";
                 player2Score += 1;
+            
             } else {
                 currentPlayer = "Player 1";
                 h2.innerHTML = "Player 1's turn!";
@@ -79,7 +72,7 @@ function playAgain(event) {
 
     boxes.forEach(box => {
         box.innerHTML = "";
-    });
+    })
 
     h2.innerHTML = "";
     currentPlayer = "Player 1";
