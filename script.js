@@ -113,6 +113,7 @@ function playAgain(event) {
 
     boxes.forEach(box => {
         box.innerHTML = "";
+        box.addEventListener("click", playGame);
     })
 
     h2.innerHTML = "";
