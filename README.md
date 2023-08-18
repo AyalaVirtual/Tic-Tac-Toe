@@ -30,9 +30,9 @@ A simple tic-tac-toe game developed using HTML, CSS, Bootstrap and vanilla JavaS
 
   Erica Ayala 
 
-    * (https://www.linkedin.com/in/ayalavirtual "LinkedIn")
+  * (https://www.linkedin.com/in/ayalavirtual "LinkedIn")
 
-    * (https://www.github.com/AyalaVirtual "GitHub") 
+  * (https://www.github.com/AyalaVirtual "GitHub") 
 
 
 
