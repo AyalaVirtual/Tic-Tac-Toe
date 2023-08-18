@@ -26,13 +26,13 @@ A simple tic-tac-toe game developed using HTML, CSS, Bootstrap and vanilla JavaS
 
   * Players can keep score throughout multiple rounds and view the number of tied games and wins for each player.
 
-  ##Author
+  ## Author
 
-  Erica Ayala 
+  :technologist: Erica Ayala 
 
-  * (https://www.linkedin.com/in/ayalavirtual "LinkedIn")
+  * [LinkedIn] (https://www.linkedin.com/in/ayalavirtual)
 
-  * (https://www.github.com/AyalaVirtual "GitHub") 
+  * [GitHub] (https://www.github.com/AyalaVirtual) 
 
 
 
