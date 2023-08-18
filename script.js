@@ -1,3 +1,4 @@
+// Declare variables to access elements 
 let player1Score = document.querySelector("#player1-score");
 let tieCounter = document.querySelector("#tie-counter");
 let player2Score = document.querySelector("#player2-score");
@@ -6,29 +7,32 @@ let boxes = document.querySelectorAll(".boxes");
 let h2 = document.querySelector("h2");
 let button = document.querySelector("button");
 
+// Set first player to Player 1 at start of game 
 let currentPlayer = "Player 1";
 
 
+// Helper function to update score after player wins 
 function updateScore() {
     let player1 = parseInt(player1Score.innerText);
     let player2 = parseInt(player2Score.innerText);
     let ties = parseInt(tieCounter.innerText);
 
-    if (currentPlayer === "Player 1") {
+    if (currentPlayer === "Player 1" && h2.innerHTML !== "It's a tie!") {
         player1 += 1;
         player1Score.innerText = player1;
 
-    } else if (currentPlayer === "Player 2") {
+    } else if (currentPlayer === "Player 2" && h2.innerHTML !== "It's a tie!") {
         player2 += 1;
         player2Score.innerText = player2;
 
-    } else {
+    } else if (h2.innerHTML === "It's a tie!") {
         ties += 1;
         tieCounter.innerText = ties;
     } 
 }
 
 
+// Helper function to disable continuous play after a player wins 
 function disableClicks() {
     if (h2.innerHTML === "Player 1 wins!" || h2.innerHTML === "Player 2 wins!" || h2.innerHTML === "It's a tie!") {
         boxes.forEach(box => box.removeEventListener("click", playGame));
@@ -56,23 +60,30 @@ function playGame(event) {
 
     if (clickedBox.innerHTML === "") {
         if (currentPlayer === "Player 1") {
-            clickedBox.innerHTML = "X";
             
-            // console.log(topLeft.innerText);
+            clickedBox.innerHTML = "X";
 
             // Check win conditions for Player 1
             if ((topLeft.innerText === "X" && topMiddle.innerText === "X" && topRight.innerText === "X") || (middleLeft.innerText === "X" && center.innerText === "X" && middleRight.innerText === "X") || (bottomLeft.innerText === "X" && bottomMiddle.innerText === "X" && bottomRight.innerText === "X") || (topLeft.innerText === "X" && center.innerText === "X" && bottomRight.innerText === "X") || (topRight.innerText === "X" && center.innerText === "X" && bottomLeft.innerText === "X") || (topLeft.innerText === "X" && middleLeft.innerText === "X" && bottomLeft.innerText === "X") || (topMiddle.innerText === "X" && center.innerText === "X" && bottomMiddle.innerText === "X") || (topRight.innerText === "X" && middleRight.innerText === "X" && bottomRight.innerText === "X")) {
 
                 h2.innerHTML = "Player 1 wins!";
                 
-                
-                updateScore();
-                
+                updateScore(); 
                 disableClicks();
 
-            } else {
+            // Check for empty squares on the board before switching turns 
+            } else if (topLeft.innerText === "" || topMiddle.innerText === "" || topRight.innerText === "" || middleLeft.innerText === "" || center.innerText === "" || middleRight.innerText === "" || bottomLeft.innerText === "" || bottomMiddle.innerText === "" || bottomRight.innerText === "") {
+                
                 currentPlayer = "Player 2";
                 h2.innerHTML = "Player 2's turn!";
+            
+            } else {
+
+                h2.innerHTML = "It's a tie!";
+                
+                updateScore();
+                disableClicks();
+            
             }
             
         } else if (currentPlayer === "Player 2") {
@@ -86,16 +97,21 @@ function playGame(event) {
                 updateScore();
                 disableClicks();
             
-            } else {
+            // Check for empty squares on the board before switching turns 
+            } else if (topLeft.innerText === "" || topMiddle.innerText === "" || topRight.innerText === "" || middleLeft.innerText === "" || center.innerText === "" || middleRight.innerText === "" || bottomLeft.innerText === "" || bottomMiddle.innerText === "" || bottomRight.innerText === "") {
+
                 currentPlayer = "Player 1";
                 h2.innerHTML = "Player 1's turn!";
-            }
-        } else {
-            h2.innerHTML = "It's a tie!";
+                                
+            } else {
+
+                h2.innerHTML = "It's a tie!";
+                
+                updateScore();
+                disableClicks();
             
-            updateScore();
-            disableClicks();
-        }
+            }
+       }
     }
 }
 
