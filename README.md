@@ -3,7 +3,7 @@
 A simple tic-tac-toe game developed using HTML, CSS, Bootstrap and vanilla JavaScript, utilizing DOM manipulation. 
 
 ## Introduction 
----
+
 <img src="./images/myT3Game.png" alt="Tic Tac Toe">
 
 ### Rules 
